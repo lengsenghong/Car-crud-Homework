@@ -1,20 +1,20 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Car Shop",
   description: "Car Shop Application built with Next.js and React",
-  keywords: ["car", "discount", "modern", "luxeri", "web development"],
+  keywords: ["car", "discount", "modern", "luxury", "web development"],
   authors: [{ name: "Marta Full Stack" }],
-  creator: "Matra",
+  creator: "Marta",
   openGraph: {
     title: "Car Shop",
     description: "Car Shop Application built with Next.js and React",
-    url: "",
+    url: "https://yourdomain.com", // replace with actual domain
     siteName: "Car Shop",
     images: [
       {
@@ -28,27 +28,29 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-        <body className={inter.className}>
-        <nav className="bg-gray-800 text-white p-4">
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <header>
+          <nav className="bg-gray-800 text-white px-6 py-4 shadow">
             <div className="container mx-auto flex justify-between items-center">
-                <div className="space-x-4">
-                    <Link href="/" className="hover:underline">
-                        Home
-                    </Link>
-                    <Link href="/cars" className="hover:underline">
-                        Cars
-                    </Link>
-                </div>
+              <div className="space-x-6 font-medium">
+                <Link href="/" className="hover:underline">
+                  Home
+                </Link>
+                <Link href="/cars" className="hover:underline">
+                  Cars
+                </Link>
+              </div>
             </div>
-        </nav>
-        {children}
-        </body>
-        </html>
-    );
+          </nav>
+        </header>
+        <main className="min-h-[calc(100vh-64px)]">{children}</main>
+      </body>
+    </html>
+  );
 }
